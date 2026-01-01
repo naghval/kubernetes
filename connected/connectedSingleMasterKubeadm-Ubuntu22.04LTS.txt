@@ -1,5 +1,6 @@
 ++++++++++++++++++++++++++++++++++++++++++++
 +K8s-Connected-Single-MasterNode by kubeadm+
++Dec25++++++++++++++++++++++++++++++++++++++
 ++++++++++++++++++++++++++++++++++++++++++++
 reference
   https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/
@@ -95,9 +96,9 @@ root@worker1:~# cat /etc/hosts
 Same procedure for worker2.example.edu and worker3.example.edu
 --------------------------------------------------------------
 
----------------------------------------------------
-Run bellow procedure on whole nodes mastres/workers
----------------------------------------------------
+----------------------------------------------------------
+Follow bellow procedure on the whole nodes mastres/workers
+----------------------------------------------------------
 root@master1:~# cat /sys/class/dmi/id/product_uuid
 bb350542-40a8-7be9-0b6e-6d40a6aabab1
 root@master1:~# free -m
@@ -119,9 +120,9 @@ root@master1:~# sysctl --system
 root@master1:~# lsmod | grep br_netfilter
 root@master1:~# lsmod | grep overlay
 root@master1:~# sysctl net.bridge.bridge-nf-call-iptables net.bridge.bridge-nf-call-ip6tables net.ipv4.ip_forward
---------------------------------------------
-Installing Container Runtime Interface (CRI)
---------------------------------------------
+---------------------------------
+Container Runtime Interface (CRI)
+---------------------------------
 You will install these packages on all of your machines:
 -containerd
 -CRI-O
@@ -262,9 +263,9 @@ root@master1:~# systemctl daemon-reload
 root@master1:~# systemctl enable --now cri-docker.service
 root@master1:~# systemctl enable --now cri-docker.socket
 root@master1:~# systemctl status cri-docker.service
----------------------------------------------------
-Installing kubeadm, kubelet and kubectl
----------------------------------------
+----------------------------
+kubeadm, kubelet and kubectl
+----------------------------
 You will install these packages on all of your machines master/workers:
 	-kubeadm: the command to bootstrap the cluster.
 	-kubelet: the component that runs on all of the machines in your cluster and does things like starting pods and containers.
@@ -276,12 +277,12 @@ root@master1:~# echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gp
 root@master1:~# apt-get update
 root@master1:~# apt-get install kubelet kubeadm kubectl -y
 root@master1:~# apt-mark hold kubelet kubeadm kubectl
------------------------------------------------------
+-------------------------------
 Creating a cluster with kubeadm
+-------------------------------
 https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/
---------------------------------------------
-You will do the procedure just on masterNode
 
+You will do the procedure just on masterNode
 Note: In this deployment seletced runtime is 'containerd'
 
 root@master1:~# hostname -i
@@ -374,12 +375,10 @@ kube-system   kube-proxy-kplw7                              1/1     Running   7 
 kube-system   kube-proxy-n6vdj                              1/1     Running   7 (20s ago)     10m
 kube-system   kube-proxy-rt56d                              1/1     Running   6 (22s ago)     9m13s
 kube-system   kube-scheduler-master1.example.edu            1/1     Running   7 (5m24s ago)   18m
----------------------------------------------------------------------------------------------------
+--------------------
 Mohammad Ali Naghval
 Redhat Technical Consultant
 Prodevans SR.Technical Consultant
 -email:
   mnaghval@redhat.com
   ali@prodevans.com
--linkedin
-  www.linkedin.com/in/mohammad-ali-naghval-7b778779
