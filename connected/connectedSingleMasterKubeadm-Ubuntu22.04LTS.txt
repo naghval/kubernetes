@@ -376,7 +376,7 @@ kube-system   kube-proxy-n6vdj                              1/1     Running   7 
 kube-system   kube-proxy-rt56d                              1/1     Running   6 (22s ago)     9m13s
 kube-system   kube-scheduler-master1.example.edu            1/1     Running   7 (5m24s ago)   18m
 --------------------
-Mohammad Ali Naghval
+Mohammad Ali Nagval
 Redhat Technical Consultant
 Prodevans SR.Technical Consultant
 -email:
